@@ -1,0 +1,550 @@
+<!doctype html>
+<html lang="hi">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Python — Poora Guide (Start → Expert) — Single Page</title>
+  <meta name="description" content="Complete Python guide in one page: basics to advanced, code examples, explanations in Hindi + English terms." />
+  
+  <style>
+    :root{--bg:#071025;--card:#0f1724;--muted:#94a3b8;--accent:#7dd3fc;--accent2:#f472b6;--mono:'Fira Code', 'Segoe UI Mono', monospace}
+    *{box-sizing:border-box}
+    body{margin:0;background:linear-gradient(180deg,#061122 0%, #021022 100%);color:#e6eef8;font-family:Inter, system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif}
+    header{display:flex;align-items:center;gap:16px;padding:20px;border-bottom:1px solid rgba(255,255,255,0.03)}
+    .logo{width:64px;height:64px;border-radius:12px;background:linear-gradient(135deg,var(--accent),var(--accent2));display:flex;align-items:center;justify-content:center;font-weight:800;color:#052b33}
+    .title{font-size:20px;font-weight:700}
+    .subtitle{color:var(--muted);font-size:13px}
+    .container{display:grid;grid-template-columns:320px 1fr;gap:20px;padding:20px}
+    nav{position:sticky;top:20px;height:calc(100vh - 40px);overflow:auto;padding:18px;background:rgba(255,255,255,0.02);border-radius:12px;border:1px solid rgba(255,255,255,0.03)}
+    nav h3{margin:0 0 8px 0;color:var(--muted)}
+    nav a{display:block;padding:8px 10px;border-radius:8px;color:#cfefff;text-decoration:none;margin:6px 0;font-size:14px}
+    nav a:hover{background:rgba(125,211,252,0.06);color:var(--accent)}
+    main{padding:10px;overflow:auto}
+    section.card{background:linear-gradient(180deg, rgba(255,255,255,0.01), rgba(255,255,255,0.005));padding:20px;border-radius:12px;margin-bottom:16px;border:1px solid rgba(255,255,255,0.02)}
+    h1,h2,h3{margin:0 0 10px 0}
+    h1{font-size:28px}
+    h2{font-size:20px;color:#dff6ff}
+    p.lead{color:var(--muted)}
+    pre{background:#021023;padding:14px;border-radius:8px;overflow:auto;font-family:var(--mono);font-size:13px;border:1px solid rgba(255,255,255,0.03)}
+    code{font-family:var(--mono);font-size:13px}
+    .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:12px}
+    .example{background:linear-gradient(90deg, rgba(255,255,255,0.01), rgba(255,255,255,0.02));padding:12px;border-radius:8px;border:1px solid rgba(255,255,255,0.02)}
+    .muted{color:var(--muted)}
+    .pill{display:inline-block;padding:6px 10px;border-radius:999px;background:rgba(255,255,255,0.02);border:1px solid rgba(255,255,255,0.02);font-size:12px;margin-right:6px}
+    .footer{padding:18px;text-align:center;color:var(--muted);font-size:13px}
+    details{margin-top:8px}
+    summary{cursor:pointer}
+    table{width:100%;border-collapse:collapse}
+    td,th{padding:6px;border-bottom:1px solid rgba(255,255,255,0.03);text-align:left}
+    @media (max-width:980px){.container{grid-template-columns:1fr;padding:12px}nav{position:relative;height:auto}}
+  </style>
+</head>
+<body>
+  <header>
+    <div class="logo">Py</div>
+    <div>
+      <div class="title">Python — Poora Guide (Start → Expert)</div>
+      <div class="subtitle">Complete single-page reference: examples, advanced topics, tools, libraries (Hindi + English)</div>
+    </div>
+  </header>
+
+  <div class="container">
+    <nav>
+      <h3>Contents — jump to</h3>
+      <a href="#intro">Intro & Setup</a>
+      <a href="#syntax">Syntax & Basics</a>
+      <a href="#types">Data Types</a>
+      <a href="#control">Control Flow</a>
+      <a href="#functions">Functions & Scopes</a>
+      <a href="#modules">Modules & Packages</a>
+      <a href="#oop">OOP Advanced</a>
+      <a href="#datastruct">Advanced Data Structures</a>
+      <a href="#regex">Regular Expressions</a>
+      <a href="#io">Files, JSON, CSV, XML</a>
+      <a href="#db">Databases (SQLite)</a>
+      <a href="#concurrency">Threads, Multiprocessing, Asyncio</a>
+      <a href="#testing">Testing & Debugging</a>
+      <a href="#numpy_pandas">NumPy & Pandas</a>
+      <a href="#plotting">Plotting (Matplotlib)</a>
+      <a href="#network">Network & Sockets</a>
+      <a href="#internals">Python Internals (GIL etc.)</a>
+      <a href="#typing">Type Hints & Static Typing</a>
+      <a href="#metaclasses">Metaclasses & Advanced OOP</a>
+      <a href="#context">Context Managers</a>
+      <a href="#itertools">Itertools & Functools</a>
+      <a href="#packaging">Packaging & Deployment</a>
+      <a href="#cheatsheet">Cheatsheet & Practice</a>
+    </nav>
+
+    <main>
+      <section id="intro" class="card">
+        <h1>Python kya hai?</h1>
+        <p class="lead">High-level interpreted language, readable syntax, batteries included. Guido van Rossum ne 1991 me release kiya. Use web, scripting, automation, data science, ML, sysadmin, and more.</p>
+        <div style="margin-top:8px"><span class="pill">Version: 3.x</span><span class="pill">Recommended: Python 3.11+</span></div>
+        <h3>Setup quick</h3>
+        <pre># Windows
+Download from python.org -> install -> check `python --version`
+# macOS
+brew install python
+# Ubuntu
+sudo apt update && sudo apt install python3 python3-pip
+# VS Code: install Python extension
+</pre>
+      </section>
+
+      <section id="syntax" class="card">
+        <h2>Basic Syntax & First Steps</h2>
+        <p class="lead">Python blocks indentation se bante hain. Semicolons optional. Case-sensitive.</p>
+        <pre># hello.py
+"""Module docstring: short description"""
+
+def main():
+    print("Hello, Python — Alex")
+
+if __name__ == '__main__':
+    main()
+</pre>
+        <h3>Comments, docstrings</h3>
+        <pre># single-line comment
+"""Multi-line docstring often used for modules, functions, classes"""
+</pre>
+      </section>
+
+      <section id="types" class="card">
+        <h2>Data Types & Variables</h2>
+        <p>Dynamic typing — variable ko assign karte hi type set hota hai. Common types follow.</p>
+        <table>
+          <tr><th>Type</th><th>Example</th><th>Notes</th></tr>
+          <tr><td>int</td><td><code>x = 10</code></td><td>Arbitrary precision</td></tr>
+          <tr><td>float</td><td><code>pi = 3.1415</code></td><td>Double precision</td></tr>
+          <tr><td>complex</td><td><code>z = 1+2j</code></td><td>Complex numbers</td></tr>
+          <tr><td>str</td><td><code>s = "hello"</code></td><td>Immutable</td></tr>
+          <tr><td>list</td><td><code>[1,2,3]</code></td><td>Mutable ordered</td></tr>
+          <tr><td>tuple</td><td><code>(1,2)</code></td><td>Immutable ordered</td></tr>
+          <tr><td>set</td><td><code>{1,2}</code></td><td>Unordered unique</td></tr>
+          <tr><td>dict</td><td><code>{'a':1}</code></td><td>Key-value mapping</td></tr>
+        </table>
+
+        <h3>Common idioms</h3>
+        <pre># unpacking
+x, y = (1, 2)
+# multiple assignment
+a = b = 0
+# swap
+x, y = y, x
+</pre>
+      </section>
+
+      <section id="control" class="card">
+        <h2>Control Flow</h2>
+        <pre># if-elif-else
+x = 5
+if x > 0:
+    print('positive')
+elif x == 0:
+    print('zero')
+else:
+    print('negative')
+
+# for with else
+for i in range(3):
+    print(i)
+else:
+    print('loop finished')
+
+# while loop
+i = 0
+while i < 3:
+    print(i)
+    i += 1
+</pre>
+      </section>
+
+      <section id="functions" class="card">
+        <h2>Functions, Scope & Closures</h2>
+        <pre>def add(a, b=0):
+    """Return sum"""
+    return a + b
+
+# Lambda
+sq = lambda x: x*x
+
+# closure example
+def make_adder(n):
+    def add(x):
+        return x + n
+    return add
+
+add5 = make_adder(5)
+print(add5(3))  # 8
+</pre>
+        <h3>Scope</h3>
+        <p>LEGB: Local, Enclosing, Global, Builtins. `global` and `nonlocal` keywords exist but use sparingly.</p>
+      </section>
+
+      <section id="modules" class="card">
+        <h2>Modules & Packages</h2>
+        <pre># standard import
+import math
+# selective
+from math import sqrt, pi
+# alias
+import numpy as np
+
+# package layout
+# mypkg/
+#   __init__.py
+#   mod1.py
+#   subpkg/
+#       __init__.py
+</pre>
+        <p>Use <code>python -m pip install package</code> to install. Prefer virtualenv.</p>
+      </section>
+
+      <section id="oop" class="card">
+        <h2>OOP — Classes, Inheritance, MRO</h2>
+        <pre>class Animal:
+    def __init__(self, name):
+        self.name = name
+    def speak(self):
+        raise NotImplementedError
+
+class Dog(Animal):
+    def speak(self):
+        return 'Woof'
+
+# multiple inheritance example
+class A: pass
+class B: pass
+class C(A,B): pass
+</pre>
+        <p>MRO (method resolution order) important in multiple inheritance: C3 linearization.</p>
+      </section>
+
+      <section id="datastruct" class="card">
+        <h2>Advanced Data Structures (collections)</h2>
+        <pre>from collections import Counter, defaultdict, deque, namedtuple
+
+# Counter
+c = Counter(['a','b','a'])
+print(c['a'])  # 2
+
+# defaultdict
+d = defaultdict(list)
+d['x'].append(1)
+
+# deque
+dq = deque([1,2,3])
+dq.appendleft(0)
+
+# namedtuple
+Point = namedtuple('Point', ['x','y'])
+p = Point(1,2)
+</pre>
+      </section>
+
+      <section id="regex" class="card">
+        <h2>Regular Expressions (re)</h2>
+        <pre>import re
+text = 'Email: test@example.com'
+m = re.search(r'([\w.%+-]+)@([\w.-]+)\.(\w+)', text)
+if m:
+    user, domain, tld = m.groups()
+    print(user, domain, tld)
+
+# common functions: re.match, re.search, re.findall, re.sub, re.compile
+</pre>
+        <p>Use raw strings (r'...') for patterns. For complex parsing, consider specialized parsers.</p>
+      </section>
+
+      <section id="io" class="card">
+        <h2>File I/O, JSON, CSV, XML</h2>
+        <pre># read text
+with open('file.txt', 'r', encoding='utf-8') as f:
+    data = f.read()
+
+# JSON
+import json
+with open('data.json') as f:
+    obj = json.load(f)
+
+# CSV
+import csv
+with open('data.csv', newline='') as f:
+    reader = csv.DictReader(f)
+    for row in reader:
+        print(row)
+
+# XML (ElementTree)
+import xml.etree.ElementTree as ET
+root = ET.fromstring('<a><b>1</b></a>')
+</pre>
+      </section>
+
+      <section id="db" class="card">
+        <h2>Databases — SQLite (builtin)</h2>
+        <pre>import sqlite3
+conn = sqlite3.connect('example.db')
+c = conn.cursor()
+c.execute('CREATE TABLE IF NOT EXISTS users(id INTEGER PRIMARY KEY, name TEXT)')
+c.execute('INSERT INTO users(name) VALUES (?)', ('Asha',))
+conn.commit()
+for row in c.execute('SELECT * FROM users'):
+    print(row)
+conn.close()
+</pre>
+        <p>For production, use SQLAlchemy or an ORM; for async DBs consider async drivers.</p>
+      </section>
+
+      <section id="concurrency" class="card">
+        <h2>Concurrency: Threading, Multiprocessing, Asyncio</h2>
+        <h3>Threading (IO-bound)</h3>
+        <pre>import threading
+
+def task(n):
+    print('task', n)
+
+threads = [threading.Thread(target=task, args=(i,)) for i in range(3)]
+for t in threads:
+    t.start()
+for t in threads:
+    t.join()
+</pre>
+        <h3>Multiprocessing (CPU-bound)</h3>
+        <pre>from multiprocessing import Pool
+
+def f(x):
+    return x*x
+
+with Pool(4) as p:
+    print(p.map(f, [1,2,3,4]))
+</pre>
+        <h3>Asyncio (concurrency with async/await)</h3>
+        <pre>import asyncio
+
+async def hello(n):
+    await asyncio.sleep(1)
+    return n
+
+async def main():
+    res = await asyncio.gather(*(hello(i) for i in range(3)))
+    print(res)
+
+asyncio.run(main())
+</pre>
+        <p>Choose threading for I/O-bound, multiprocessing for CPU-bound, asyncio for many concurrent I/O tasks.</p>
+      </section>
+
+      <section id="testing" class="card">
+        <h2>Testing, Debugging & Profiling</h2>
+        <h3>Unittest</h3>
+        <pre>import unittest
+
+class TestMath(unittest.TestCase):
+    def test_add(self):
+        self.assertEqual(1+1, 2)
+
+if __name__ == '__main__':
+    unittest.main()
+</pre>
+        <h3>Pytest (simpler)</h3>
+        <pre># test_add.py
+def add(a,b):
+    return a+b
+
+def test_add():
+    assert add(2,3) == 5
+</pre>
+        <h3>Debugging</h3>
+        <p>Use pdb (`python -m pdb script.py`) or VS Code debugger. Profiling: cProfile, line_profiler.</p>
+      </section>
+
+      <section id="numpy_pandas" class="card">
+        <h2>NumPy & Pandas basics</h2>
+        <pre>import numpy as np
+import pandas as pd
+
+# NumPy array
+arr = np.array([1,2,3])
+print(arr.mean())
+
+# Pandas DataFrame
+df = pd.DataFrame({'a':[1,2,3],'b':[4,5,6]})
+print(df.describe())
+</pre>
+        <p>Pandas for tabular data; NumPy for numerical arrays. Learn vectorized operations for performance.</p>
+      </section>
+
+      <section id="plotting" class="card">
+        <h2>Plotting (Matplotlib)</h2>
+        <pre>import matplotlib.pyplot as plt
+x = [1,2,3,4]
+y = [10,20,25,30]
+plt.plot(x,y)
+plt.title('Sample')
+plt.xlabel('x')
+plt.ylabel('y')
+plt.savefig('plot.png')
+</pre>
+      </section>
+
+      <section id="network" class="card">
+        <h2>Network Programming & Sockets</h2>
+        <pre># simple TCP server
+import socket
+s = socket.socket()
+s.bind(('localhost', 9000))
+s.listen(1)
+conn, addr = s.accept()
+print('Connected:', addr)
+data = conn.recv(1024)
+conn.sendall(b'HTTP/1.1 200 OK\r\n\r\nHello')
+conn.close()
+</pre>
+        <p>For HTTP APIs use frameworks: Flask, FastAPI (FastAPI recommended for async and performance).</p>
+      </section>
+
+      <section id="internals" class="card">
+        <h2>Python Internals: GIL, Memory, GC</h2>
+        <p><strong>GIL (Global Interpreter Lock)</strong>: CPython has a GIL that allows only one native thread to execute Python bytecode at a time — affects CPU-bound threads. Multiprocessing or C extensions circumvent it. Other implementations (PyPy, Jython) differ.</p>
+        <p><strong>Memory</strong>: Objects allocated on heap, ref-counting + cyclic GC. Use tracemalloc to debug memory.</p>
+      </section>
+
+      <section id="typing" class="card">
+        <h2>Type Hints & Static Typing</h2>
+        <pre>from typing import List, Dict, Optional
+
+def greet(name: str) -> str:
+    return f"Hello, {name}"
+
+def process(items: List[int]) -> Dict[str, int]:
+    return {'sum': sum(items)}
+</pre>
+        <p>Use <code>mypy</code> for static type checking. Type hints improve maintainability but are optional at runtime.</p>
+      </section>
+
+      <section id="metaclasses" class="card">
+        <h2>Metaclasses & Advanced OOP</h2>
+        <pre># simple metaclass example
+class Meta(type):
+    def __new__(mcls, name, bases, namespace):
+        namespace['created_by_meta'] = True
+        return super().__new__(mcls, name, bases, namespace)
+
+class A(metaclass=Meta):
+    pass
+
+print(A.created_by_meta)
+</pre>
+        <p>Metaclasses let you customize class creation — use only when necessary.</p>
+      </section>
+
+      <section id="context" class="card">
+        <h2>Context Managers</h2>
+        <pre># builtin: open() is a context manager
+with open('file.txt') as f:
+    data = f.read()
+
+# custom context manager
+from contextlib import contextmanager
+
+@contextmanager
+def ctx():
+    print('enter')
+    try:
+        yield 'resource'
+    finally:
+        print('exit')
+
+with ctx() as r:
+    print(r)
+</pre>
+      </section>
+
+      <section id="itertools" class="card">
+        <h2>Itertools & Functools</h2>
+        <pre>import itertools
+# infinite counter
+for i in itertools.count(1):
+    if i>3: break
+    print(i)
+
+from functools import lru_cache, partial
+
+@lru_cache(maxsize=128)
+def fib(n):
+    if n < 2: return n
+    return fib(n-1) + fib(n-2)
+
+add5 = partial(lambda a,b: a+b, 5)
+print(add5(10))
+</pre>
+      </section>
+
+      <section id="packaging" class="card">
+        <h2>Packaging & Deployment</h2>
+        <p>Use <code>pyproject.toml</code> for modern packaging. Build wheels, upload with twine.</p>
+        <pre># basic commands
+pip install build
+python -m build
+pip install twine
+python -m twine upload dist/*
+</pre>
+        <p>For apps: containerize with Docker, deploy on platforms (Render, Heroku, AWS, GCP).</p>
+      </section>
+
+      <section id="cheatsheet" class="card">
+        <h2>Cheatsheet & Practice</h2>
+        <h3>Common snippets</h3>
+        <pre># reverse string
+s = 'abc'[::-1]
+# read lines
+with open('f') as f: lines = f.read().splitlines()
+# list dedupe
+lst = list(dict.fromkeys([1,2,1,3]))
+# flatten list
+flat = [y for x in [[1,2],[3]] for y in x]
+</pre>
+        <h3>Practice problems (starter → advanced)</h3>
+        <ol>
+          <li>Check prime (optimize sqrt approach)</li>
+          <li>Frequency count of words in a file (use Counter)</li>
+          <li>Find kth largest element (heapq)</li>
+          <li>Implement LRU cache (use functools.lru_cache or custom)</li>
+          <li>Build REST API with FastAPI (async)</li>
+          <li>Write a simple web scraper with requests + BeautifulSoup</li>
+        </ol>
+      </section>
+
+      <section class="card">
+        <h2>Resources & Next Steps</h2>
+        <ul>
+          <li>Official docs: <a href="https://docs.python.org/3/">docs.python.org</a></li>
+          <li>PEP8: style guide; use <code>black</code></li>
+          <li>FastAPI for async web APIs; Flask/Django for simpler apps</li>
+          <li>Learn tooling: virtualenv, venv, Docker, pytest, mypy</li>
+        </ul>
+      </section>
+
+      <div class="footer"></div>
+    </main>
+  </div>
+
+<script>
+  // small smooth scroll for nav
+  document.querySelectorAll('nav a').forEach(a=>{
+    a.addEventListener('click', (e)=>{
+      e.preventDefault();
+      const id = a.getAttribute('href').slice(1);
+      const el = document.getElementById(id);
+      if(el) el.scrollIntoView({behavior:'smoot', block:'start'});
+    })
+  })
+</script>
+
+<!-- Ad Script -->
+<script async="async" data-cfasync="false" src="//pl27569249.revenuecpmgate.com/3681d0d523de85e17e5770978baf26d3/invoke.js"></script>
+<div id="container-3681d0d523de85e17e5770978baf26d3"></div>
+
+</body>
+</html>
